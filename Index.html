@@ -1,1 +1,250 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Mama!</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e1b2e 0%, #2d1f3d 50%, #1a1a2e 100%);
+    overflow: hidden;
+    position: relative;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 60px 40px 40px;
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 5;
+    animation: pop 0.8s ease-out;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* ---------- CSS Cake ---------- */
+  #cake {
+    display: block;
+    position: relative;
+    margin: -4em auto 30px auto;
+    width: fit-content;
+  }
+
+  .candle {
+    background: #fffaf0;
+    border-radius: 10px;
+    position: relative;
+    margin: 0 auto -8px auto;
+    width: 6px;
+    height: 40px;
+    z-index: 2;
+  }
+
+  .fire {
+    border-radius: 100%;
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    margin-left: -6px;
+    width: 12px;
+    height: 20px;
+    background: radial-gradient(circle at 50% 70%, #fff5c2 0%, #ffcc33 40%, #ff7b00 80%);
+    box-shadow: 0 0 12px 4px rgba(255,170,0,0.6), 0 0 25px 8px rgba(255,100,0,0.3);
+    animation: flicker 0.4s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+  }
+
+  @keyframes flicker {
+    0%   { transform: scale(1, 1) rotate(-3deg); }
+    50%  { transform: scale(0.92, 1.08) rotate(2deg); }
+    100% { transform: scale(1.05, 0.95) rotate(-2deg); }
+  }
+
+  .tier {
+    margin: 0 auto;
+    border-radius: 6px;
+    position: relative;
+  }
+
+  .tier-top {
+    width: 90px;
+    height: 26px;
+    background: linear-gradient(180deg, #ffe0ec 0%, #ffb6c9 100%);
+    border: 2px solid #ff8fab;
+  }
+
+  .tier-mid {
+    width: 120px;
+    height: 30px;
+    background: linear-gradient(180deg, #ffd1dc 0%, #ff9fb5 100%);
+    border: 2px solid #ff7996;
+    margin-top: -2px;
+  }
+
+  .tier-base {
+    width: 150px;
+    height: 34px;
+    background: linear-gradient(180deg, #ffc2d1 0%, #ff85a2 100%);
+    border: 2px solid #ff6384;
+    margin-top: -2px;
+    border-radius: 6px 6px 10px 10px;
+  }
+
+  .drip {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: repeating-radial-gradient(circle at 10px 0, #fff0f5 0 4px, transparent 5px 20px);
+    opacity: 0.8;
+  }
+
+  .plate {
+    width: 180px;
+    height: 8px;
+    background: linear-gradient(180deg, #e6c15c, #b8860b);
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  }
+  /* ---------- End CSS Cake ---------- */
+
+  .card h2 {
+    font-size: 1.1em;
+    font-weight: 400;
+    margin: 0;
+    color: #f2d9e0;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+
+  .card h1 {
+    font-size: 2.6em;
+    margin: 4px 0 14px;
+    background: linear-gradient(90deg, #ffd6a5, #ff9fb5, #c8a2ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card p {
+    font-size: 1.05em;
+    color: #e6dceb;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Falling cakes & candles (background decor) */
+  .falling {
+    position: absolute;
+    top: -60px;
+    font-size: 2em;
+    animation: fall linear infinite;
+    z-index: 1;
+    user-select: none;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0.9; }
+  }
+
+  /* Balloons */
+  .balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 40px;
+    height: 52px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: rise linear infinite;
+    opacity: 0.85;
+    z-index: 1;
+  }
+
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    width: 1px;
+    height: 18px;
+    background: #999;
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-60vh) rotate(8deg); }
+    100% { transform: translateY(-120vh) rotate(-5deg); }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div id="cake">
+      <div class="candle">
+        <div class="fire"></div>
+      </div>
+      <div class="tier tier-top"><div class="drip"></div></div>
+      <div class="tier tier-mid"><div class="drip"></div></div>
+      <div class="tier tier-base"><div class="drip"></div></div>
+      <div class="plate"></div>
+    </div>
+    <h2>happy birthday!</h2>
+    <h1>Mama</h1>
+    <p>Every candle carries a wish for your happiness.<br>
+    Thank you for your endless love, warmth, and care.<br>
+    I love you so much! 💕</p>
+  </div>
+
+  <script>
+    const balloonColors = ['#ff9fb5', '#ffd6a5', '#c8a2ff', '#a0e7e5', '#fff5ba'];
+    const fallingItems = ['🎂', '🍰', '🕯️', '🎈', '🎉', '🧁'];
+
+    // Balloons rising from bottom
+    for (let i = 0; i < 10; i++) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+      balloon.style.animationDuration = (7 + Math.random() * 6) + 's';
+      balloon.style.animationDelay = (Math.random() * 6) + 's';
+      document.body.appendChild(balloon);
+    }
+
+    // Falling cakes, cupcakes, candles from top
+    for (let i = 0; i < 16; i++) {
+      const item = document.createElement('div');
+      item.className = 'falling';
+      item.textContent = fallingItems[Math.floor(Math.random() * fallingItems.length)];
+      item.style.left = Math.random() * 100 + 'vw';
+      item.style.fontSize = (1.2 + Math.random() * 1.3) + 'em';
+      item.style.animationDuration = (6 + Math.random() * 6) + 's';
+      item.style.animationDelay = (Math.random() * 8) + 's';
+      document.body.appendChild(item);
+    }
+  </script>
+
+</body>
+</html>
